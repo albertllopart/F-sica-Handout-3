@@ -6,6 +6,7 @@
 #include "p2Point.h"
 #include "math.h"
 
+
 #ifdef _DEBUG
 #pragma comment( lib, "Box2D/libx86/Debug/Box2D.lib" )
 #else
@@ -307,13 +308,13 @@ void ModulePhysics::BeginContact(b2Contact* Contact)
 
 	LOG("EUREKA");
 	
-	if (checkA) OnCollision();
-	if (checkB) OnCollision();
+	if (checkA) OnCollision(checkA, checkB);
+	if (checkB) OnCollision(checkA, checkB);
 }
 
-void ModulePhysics::OnCollision()
+void ModulePhysics::OnCollision(PhysBody* body1, PhysBody* body2)
 {
-
+	LOG("OK");
 }
 
 
