@@ -302,8 +302,13 @@ int PhysBody::RayCast(int x1, int y1, int x2, int y2, float& normal_x, float& no
 // TODO 3
 void ModulePhysics::BeginContact(b2Contact* Contact)
 {
+	PhysBody* checkA = (PhysBody*)Contact->GetFixtureA()->GetBody()->GetUserData();
+	PhysBody* checkB = (PhysBody*)Contact->GetFixtureB()->GetBody()->GetUserData();
+
 	LOG("EUREKA");
-	OnCollision();
+	
+	if (checkA) OnCollision();
+	if (checkB) OnCollision();
 }
 
 void ModulePhysics::OnCollision()
