@@ -170,7 +170,10 @@ update_status ModuleSceneIntro::Update()
 
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
-
+	if (bodyA != NULL)
+	{
+		LOG("letsgo");
+	}
 }
 
 // TODO 8: Now just define collision callback for the circle and play bonus_fx audio

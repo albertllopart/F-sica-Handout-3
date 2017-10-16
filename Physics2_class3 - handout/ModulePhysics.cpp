@@ -308,8 +308,14 @@ void ModulePhysics::BeginContact(b2Contact* Contact)
 
 	LOG("EUREKA");
 	
-	if (checkA) OnCollision(checkA, checkB);
-	if (checkB) OnCollision(checkA, checkB);
+	if (checkA && checkA->listener != NULL)
+	{
+		checkA->listener->OnCollision(checkA, checkB);
+	}
+	if (checkB && checkB->listener != NULL)
+	{
+		checkB->listener->OnCollision(checkA, checkB);
+	}
 }
 
 void ModulePhysics::OnCollision(PhysBody* body1, PhysBody* body2)
