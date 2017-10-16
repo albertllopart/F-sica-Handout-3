@@ -51,7 +51,7 @@ public:
 
 	void BeginContact(b2Contact* contact);
 
-	void OnCollision();
+	void OnCollision(PhysBody* body1, PhysBody* body2);
 
 private:
 
